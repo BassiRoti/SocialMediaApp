@@ -11,4 +11,7 @@
     <string name="already_have_an_account_log_in">Already have an account? Log in</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="feed">Feed</string>
+    <string name="username">username</string>
+    <string name="this_is_a_sample_caption_for_the_post">This is a sample caption for the post.</string>
 </resources>

@@ -3,14 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context=".ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feed"
+        android:padding="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@color/greyish"
+        android:layout_marginBottom="20dp">
+
+    </TextView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvid"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="chat" />
+        android:padding="8dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
