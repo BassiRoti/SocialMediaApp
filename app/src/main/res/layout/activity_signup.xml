@@ -8,32 +8,45 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_marginHorizontal="40dp"
-    tools:context=".MainActivity">
-
+    tools:context=".Signup">
 
     <ImageView
-        android:id="@+id/logoImage"
+        android:id="@+id/signuplogoimage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/testlogo"
         android:layout_marginBottom="24dp" >
-    </ImageView>
 
+    </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/snake"
+        android:text="@string/create_account"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="#222222"
+        android:textColor="@color/black"
         android:layout_marginBottom="24dp" >
 
     </TextView>
 
+    <EditText
+        android:id="@+id/etsignupname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/full_name"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/greyish"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp" >
+
+    </EditText>
+
 
     <EditText
-        android:id="@+id/etemail"
+        android:id="@+id/etsignupemail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/email"
@@ -48,7 +61,7 @@
 
 
     <EditText
-        android:id="@+id/etpass"
+        android:id="@+id/etsignuppass"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/password"
@@ -63,22 +76,27 @@
 
 
     <Button
-        android:id="@+id/loginbtn"
+        android:id="@+id/signupbtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/login"
+        android:text="@string/sign_up"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
         android:layout_marginBottom="16dp" >
 
     </Button>
 
+
     <TextView
-        android:id="@+id/tvsignup"
+       android:id="@+id/tvlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/don_t_have_an_account_sign_up"
+        android:text="@string/already_have_an_account_log_in"
         android:textColor="@color/blue"
-        android:textSize="14sp" />
+        android:textSize="14sp" >
+
+    </TextView>
+
+
 
 </LinearLayout>
