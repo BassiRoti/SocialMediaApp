@@ -1,6 +1,7 @@
 package com.example.socialmediaapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,12 +36,14 @@ public class MultiImagePagerAdapter extends RecyclerView.Adapter<MultiImagePager
 
         Glide.with(context)
                 .load(simgle_img)
+                .error(R.drawable.error_icon)
                 .into(holder.imgv);
 
     }
 
     @Override
     public int getItemCount() {
+//        Log.d("listsize", "Image list size: " + imagelist.size());
         return imagelist.size();
     }
 

@@ -46,6 +46,9 @@ dependencies {
     implementation (libs.glide)
     //noinspection UseTomlInstead
     annotationProcessor (libs.compiler)
+    //noinspection UseTomlInstead
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
 
 
 }

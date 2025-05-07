@@ -1,6 +1,7 @@
 package com.example.socialmediaapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,8 @@ public class RVAdapter extends FirebaseRecyclerAdapter<PostsData, RVAdapter.View
         holder.timespam.setText(model.getTimespam());
 
         MultiImagePagerAdapter adapter=new MultiImagePagerAdapter(c,model.getImageUrls());
+        Log.d("ImageDebug", "Image URLs: " + model.getImageUrls());
+
         holder.vp2.setAdapter(adapter);
 
     }
