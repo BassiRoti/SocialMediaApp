@@ -47,6 +47,9 @@ public class MainConfigurator extends AppCompatActivity {
                         tab.setIcon(R.drawable.chat_icon);
                         break;
                     case 2:
+                        tab.setIcon(R.drawable.add_icon);
+                        break;
+                    case 3:
                         tab.setIcon(R.drawable.profile_icon);
                         break;
                     default:

@@ -6,26 +6,6 @@
     android:orientation="vertical"
     tools:context=".ChatFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/feed"
-        android:padding="16dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:background="@color/greyish"
-        android:layout_marginBottom="20dp">
 
-    </TextView>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

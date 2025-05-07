@@ -22,6 +22,8 @@ public class PagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new ChatFragment();
             case 2:
+                return new AddPostFrag();
+            case 3:
                 return new ProfileFragment();
             default:
                 return new FeedFragment();
@@ -30,7 +32,7 @@ public class PagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 
 
