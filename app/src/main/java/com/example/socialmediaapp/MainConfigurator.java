@@ -1,8 +1,13 @@
 package com.example.socialmediaapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -17,12 +22,16 @@ public class MainConfigurator extends AppCompatActivity {
     ViewPager2 vp;
     TabLayout tb;
     PagerAdapter adapter;
+    Uri image;
+
+    ActivityResultLauncher<Intent> launcher;
 
     private void init(){
         vp=findViewById(R.id.viewpagerid);
         tb=findViewById(R.id.tablayoutid);
         adapter=new PagerAdapter(this);
         vp.setAdapter(adapter);
+
     }
 
     @Override
@@ -48,6 +57,7 @@ public class MainConfigurator extends AppCompatActivity {
                         break;
                     case 2:
                         tab.setIcon(R.drawable.add_icon);
+
                         break;
                     case 3:
                         tab.setIcon(R.drawable.profile_icon);
@@ -58,5 +68,33 @@ public class MainConfigurator extends AppCompatActivity {
                 }
             }
         }).attach();
+//
+//        launcher=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result->{
+//            if(result.getData()!=null && result.getResultCode()==RESULT_OK){
+//                image=result.getData().getData();
+//            }
+//        });
+//
+//        tb.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                int position =tab.getPosition();
+//                if(position==2){
+//                    Intent i=new Intent(Intent.ACTION_PICK);
+//                    i.setType("image/*");
+//                    launcher.launch(i);
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
     }
 }

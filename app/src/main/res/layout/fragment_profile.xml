@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center"
+    android:background="@color/purple2"
     tools:context=".ProfileFragment">
 
         <androidx.cardview.widget.CardView
@@ -26,18 +27,20 @@
 
         </androidx.cardview.widget.CardView>
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username"
+            android:id="@+id/profilename"
             android:layout_marginStart="130dp"
             android:layout_marginTop="60dp">
-        </EditText>
+        </TextView>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/profilerv"
         android:layout_marginTop="300dp">
 
     </androidx.recyclerview.widget.RecyclerView>

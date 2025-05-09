@@ -14,4 +14,5 @@
     <string name="feed">Feed</string>
     <string name="username">username</string>
     <string name="this_is_a_sample_caption_for_the_post">This is a sample caption for the post.</string>
+    <string name="add_caption">Add Caption</string>
 </resources>
