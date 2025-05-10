@@ -18,4 +18,5 @@
     <string name="logout">Logout</string>
     <string name="bio">Bio</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="save_changes">Save Changes</string>
 </resources>
