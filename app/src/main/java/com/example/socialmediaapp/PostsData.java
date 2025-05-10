@@ -7,6 +7,7 @@ public class PostsData {
     public String caption;
     public String timespam;
     public List<String> imageUrls;
+    String postID;
 
     public PostsData(){
 
@@ -44,10 +45,19 @@ public class PostsData {
         this.imageUrls = imageUrls;
     }
 
-    public PostsData(String userID, String caption, String timespam, List<String> imageUrls) {
+    public String getPostID() {
+        return postID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
+    }
+
+    public PostsData(String userID, String caption, String timespam, List<String> imageUrls, String postID) {
         this.userID = userID;
         this.caption = caption;
         this.timespam = timespam;
         this.imageUrls = imageUrls;
+        this.postID = postID;
     }
 }

@@ -5,62 +5,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="40dp"
+    android:gravity="center"
     tools:context=".AddPostFrag">
-    
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical">-->
 
-<!--        <Button-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_marginTop="40dp"-->
-<!--            android:layout_marginStart="135dp"-->
-<!--            android:text="Add Post"-->
-<!--            android:textSize="20sp"-->
-<!--            android:id="@+id/btn_addpost">-->
-<!--        </Button>-->
 
-<!--    </LinearLayout>-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="@color/purple"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="40dp"
+        android:background="@android:color/transparent">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginBottom="50dp">-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/camera_icon"
+            android:id="@+id/dialogueimage">
+        </ImageView>
 
-<!--&lt;!&ndash;        <androidx.cardview.widget.CardView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="200dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginStart="20dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginEnd="20dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="50dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:cardBackgroundColor="@color/purple"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:cardCornerRadius="10dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:cardElevation="30dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginHorizontal="20dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginVertical="40dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:background="@android:color/transparent">&ndash;&gt;-->
-<!--&lt;!&ndash;            &ndash;&gt;-->
-<!--&lt;!&ndash;            <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:src="@drawable/camera_icon"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:id="@+id/camera_icon">&ndash;&gt;-->
-<!--&lt;!&ndash;            </ImageView>&ndash;&gt;-->
+    </androidx.cardview.widget.CardView>
 
-<!--&lt;!&ndash;        </androidx.cardview.widget.CardView>&ndash;&gt;-->
 
-<!--        <Button-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Select image"-->
-<!--            android:id="@+id/btnaddimage">-->
-<!--        </Button>-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/add_caption"
+        android:background="@drawable/edittext_background"
+        android:id="@+id/dialoguecaption"
+        android:layout_marginVertical="10dp"
+        android:padding="12dp"
+        android:layout_marginHorizontal="20dp"
+        >
+    </EditText>
 
-<!--       </LinearLayout>-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Post"
+        android:id="@+id/btnaddpost"
+        android:layout_marginTop="10dp">
+    </Button>
 
 
 </LinearLayout>

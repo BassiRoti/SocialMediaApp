@@ -45,6 +45,15 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/logoutbtn"
+        android:text="Logout"
+        android:layout_alignParentBottom="true"
+        >
 
+    </Button>
 
 </RelativeLayout>
