@@ -4,15 +4,10 @@ public class UserData {
    private String Username;
    private String Bio;
    private String Image;
+   private String userID;
 
     public UserData(){
 
-    }
-
-    public UserData(String username, String bio, String image) {
-        Username = username;
-        Bio = bio;
-        Image = image;
     }
 
     public String getUsername() {
@@ -37,5 +32,20 @@ public class UserData {
 
     public void setImage(String image) {
         Image = image;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public UserData(String username, String bio, String image, String userID) {
+        Username = username;
+        Bio = bio;
+        Image = image;
+        this.userID = userID;
     }
 }

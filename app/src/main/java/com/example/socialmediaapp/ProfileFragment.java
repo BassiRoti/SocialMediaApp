@@ -1,6 +1,9 @@
 package com.example.socialmediaapp;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -28,9 +31,10 @@ import com.google.firebase.database.ValueEventListener;
 public class ProfileFragment extends Fragment {
 
     ImageView userimg;
-    TextView username;
+    TextView username, bio;
     RecyclerView profilerv;
     View v;
+    SharedPreferences sp;
 
     Button logoutbtn;
 
@@ -39,6 +43,12 @@ public class ProfileFragment extends Fragment {
         username=v.findViewById(R.id.profilename);
         profilerv=v.findViewById(R.id.profilerv);
         logoutbtn=v.findViewById(R.id.logoutbtn);
+        bio=v.findViewById(R.id.bio);
+        sp= getContext().getSharedPreferences("authentication_data",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sp.edit();
+        username.setText(sp.getString("user_name",""));
+        bio.setText(sp.getString("user_bio",""));
+
     }
 
     @Override
@@ -65,6 +75,8 @@ public class ProfileFragment extends Fragment {
 //            }
 //        });
 
+
+
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,5 +85,7 @@ public class ProfileFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+
     }
 }

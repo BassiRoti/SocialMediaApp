@@ -15,4 +15,7 @@
     <string name="username">username</string>
     <string name="this_is_a_sample_caption_for_the_post">This is a sample caption for the post.</string>
     <string name="add_caption">Add Caption</string>
+    <string name="logout">Logout</string>
+    <string name="bio">Bio</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>
