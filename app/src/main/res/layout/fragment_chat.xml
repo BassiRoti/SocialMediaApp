@@ -4,8 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/purple2"
     tools:context=".ChatFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatlistRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
