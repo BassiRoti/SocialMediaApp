@@ -37,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
         loginbtn=findViewById(R.id.loginbtn);
         activity_changer=findViewById(R.id.tvsignup);
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            Intent i = new Intent(MainActivity.this, MainConfigurator.class);
+            startActivity(i);
+            finish();
+        }
+    }
+
 
 //    @Override
 //    public void onStart() {

@@ -1,6 +1,8 @@
 package com.example.socialmediaapp;
 
+import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
+import static android.view.View.VISIBLE;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -8,9 +10,12 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -25,6 +30,7 @@ import android.widget.Toast;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -39,12 +45,14 @@ public class ProfileFragment extends Fragment {
     RecyclerView profilerv;
     View v;
     SharedPreferences sp;
-
+    Uri image;
+    ActivityResultLauncher<Intent> launcher;
     Button logoutbtn;
     Button editbtn;
     SharedPreferences.Editor editor;
     ProfileRVAdapter adapter;
-
+    RecyclerView.LayoutManager manager;
+    private ImageView dialoguepfp;
 
 
     private void init(){
@@ -54,6 +62,8 @@ public class ProfileFragment extends Fragment {
         logoutbtn=v.findViewById(R.id.logoutbtn);
         editbtn=v.findViewById(R.id.editpfbtn);
         bio=v.findViewById(R.id.bio);
+        manager=new LinearLayoutManager(requireContext());
+        profilerv.setLayoutManager(manager);
         sp= getContext().getSharedPreferences("authentication_data",MODE_PRIVATE);
         editor=sp.edit();
         username.setText(sp.getString("user_name",""));
@@ -101,10 +111,10 @@ public class ProfileFragment extends Fragment {
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("Username","");
-                editor.putString("Bio","");
-                editor.putString("userID","");
-                editor.putString("Image","");
+                editor.putString("user_name","");
+                editor.putString("user_bio","");
+                editor.putString("user_id","");
+                editor.putString("user_pf","");
                 editor.apply();
                 FirebaseAuth.getInstance().signOut();
                 Intent i=new Intent(getContext(),MainActivity.class);
@@ -117,10 +127,25 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                 View vv = LayoutInflater.from(requireContext()).inflate(R.layout.custom_dialogue, null, false);
+                dialoguepfp = vv.findViewById(R.id.dialoguepfp);
+                String pfUri = sp.getString("user_pf", "");
+                if (!pfUri.isEmpty()) {
+                    dialoguepfp.setImageURI(Uri.parse(pfUri));
+                }
+
                 builder.setView(vv);
 
                 Button dialoguesavebtn = vv.findViewById(R.id.dialoguesavebtn);
                 EditText Dialoguebio = vv.findViewById(R.id.dialoguebio);
+                ImageView dialoguepfp=vv.findViewById(R.id.dialoguepfp);
+                dialoguepfp.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i=new Intent(Intent.ACTION_PICK);
+                        i.setType("image/*");
+                        launcher.launch(i);
+                    }
+                });
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
@@ -155,8 +180,37 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        launcher=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result->{
+            if(result.getData()!=null && result.getResultCode()==RESULT_OK){
+                image=result.getData().getData();
+                userimg.setImageURI(image);
+                if (dialoguepfp != null) {
+                    dialoguepfp.setImageURI(image);
+                }
+                editor.putString("user_pf",image.toString());
+                editor.apply();
+                String pfid=FirebaseAuth.getInstance().getUid();
+                FirebaseDatabase.getInstance()
+                        .getReference("users")
+                        .child(pfid)
+                        .child("Image")
+                        .setValue(image.toString());
+            }
+        });
+
+        userimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Intent.ACTION_PICK);
+                i.setType("image/*");
+                launcher.launch(i);
+            }
+        });
+
+
 
     }
+
 
     @Override
     public void onStop() {

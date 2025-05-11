@@ -1,6 +1,10 @@
 package com.example.socialmediaapp;
 
+import static android.content.Context.MODE_PRIVATE;
+import static android.view.View.VISIBLE;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +38,10 @@ public class ProfileRVAdapter extends FirebaseRecyclerAdapter<PostsData, Profile
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull PostsData model) {
+//        holder.title.setVisibility(VISIBLE);
+//        SharedPreferences sp= c.getSharedPreferences("authentication_data",MODE_PRIVATE);
+//        holder.title.setText("Posts by " + sp.getString("user_name", ""));
+
         String tempid= model.getUserID();
             FirebaseDatabase.getInstance().getReference("users").child(tempid).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -74,6 +82,7 @@ public class ProfileRVAdapter extends FirebaseRecyclerAdapter<PostsData, Profile
         TextView username, caption, timespam;
         ViewPager2 vp2;
 
+        TextView title;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,6 +91,7 @@ public class ProfileRVAdapter extends FirebaseRecyclerAdapter<PostsData, Profile
             caption=itemView.findViewById(R.id.tvcaption);
             timespam=itemView.findViewById(R.id.tvtimespam);
             vp2=itemView.findViewById(R.id.vpimage);
+            title=itemView.findViewById(R.id.posttitle);
 
         }
     }
