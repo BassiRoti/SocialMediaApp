@@ -3,6 +3,7 @@ package com.example.socialmediaapp;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ public class ChatListAdapter extends FirebaseRecyclerAdapter<UserData, ChatListA
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull UserData model) {
         String uid = getRef(position).getKey();
-
+        Log.d("ChatSelection", "ChatListAdapter: Processing item. currentLoggedInUser=" + currentUid + ", userInThisListItem=" + uid + ", usernameFromModel=" + model.getUsername());
         if (!uid.equals(currentUid)) {
             holder.name.setText(model.getUsername());
 
@@ -40,10 +41,10 @@ public class ChatListAdapter extends FirebaseRecyclerAdapter<UserData, ChatListA
                 }
             });
         }
-//        else {
-//            holder.itemView.setVisibility(View.GONE);
-//            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
-//        }
+        else {
+            holder.itemView.setVisibility(View.GONE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
     }
 
     @NonNull
