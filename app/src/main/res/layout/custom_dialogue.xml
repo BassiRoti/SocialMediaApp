@@ -1,52 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="40dp"
-    android:orientation="vertical"
-    android:background="@color/purple2"
-    android:gravity="center">
+    android:background="@color/white">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        app:cardCornerRadius="60dp"
-        app:cardElevation="4dp"
-        android:layout_marginTop="32dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
         <ImageView
-            android:id="@+id/dialoguepfp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/profile_icon" >
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:background="@color/purple2" >
+
         </ImageView>
-    </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/dialoguebio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Enter Bio"
-        android:textColor="@color/black"
-        android:textSize="14sp" >
-    </EditText>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save_changes"
-        android:layout_marginTop="10dp"
-        android:id="@+id/dialoguesavebtn"
-        >
-
-    </Button>
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="-60dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="8dp"
+            android:layout_gravity="center"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
 
 
+            <ImageView
+                android:id="@+id/dialoguepfp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_icon">
+
+            </ImageView>
+        </androidx.cardview.widget.CardView>
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black" >
+
+        </TextView>
 
 
+        <EditText
+            android:id="@+id/dialoguebio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/tell_us_about_yourself"
+            android:textColorHint="#999999"
+            android:textColor="@color/black"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:minHeight="100dp"
+            android:gravity="top|start"
+            android:textSize="14sp" >
+
+        </EditText>
 
 
-</LinearLayout>
+        <Button
+            android:id="@+id/dialoguesavebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/save_changes"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/purple2"
+            android:paddingVertical="12dp"
+            android:textSize="16sp" >
+
+        </Button>
+    </LinearLayout>
+</ScrollView>

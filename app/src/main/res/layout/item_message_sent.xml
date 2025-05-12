@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="4dp">
 
     <TextView
         android:id="@+id/messageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="start"
-        android:background="#0084FF"
-        android:textColor="#fff"
-        android:padding="10dp"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="10dp"
-        android:maxWidth="300dp">
-    </TextView>
-
+        android:background="@drawable/chat_bubble_sent"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:textSize="15sp"
+        android:maxWidth="280dp"
+        android:elevation="2dp" />
 </RelativeLayout>

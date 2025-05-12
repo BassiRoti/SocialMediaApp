@@ -6,19 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ChatActivity">
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/icon_arrow_back"
-        android:layout_margin="16dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="@color/purple">
 
-    </ImageButton>
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_arrow_back" >
 
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chat"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginStart="12dp"
+            android:textStyle="bold">
+
+        </TextView>
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,32 +44,45 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="none" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#F0F0F0">
+        android:background="#FAFAFA"
+        android:elevation="4dp">
 
         <EditText
             android:id="@+id/messageInput"
             android:layout_width="0dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:hint="Type message"
-            android:padding="10dp"
-            android:textColor="#000" />
+            android:hint="@string/type_message"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edittext_background"
+            android:textColor="#000000"
+            android:textColorHint="#888888" >
+
+        </EditText>
 
         <Button
             android:id="@+id/sendButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send" />
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/send"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/purple"
+            android:textColor="@android:color/white">
+
+        </Button>
     </LinearLayout>
-
-
-
 
 </LinearLayout>
