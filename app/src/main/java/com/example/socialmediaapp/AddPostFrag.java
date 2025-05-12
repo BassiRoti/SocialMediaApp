@@ -42,7 +42,7 @@ public class AddPostFrag extends Fragment {
     EditText caption;
     Button btnaddpost;
     ActivityResultLauncher<Intent> launcher;
-    final String IMGBB_API_KEY = "4838077f3adbab432f18d5e7e42a53ff"; // replace with your own
+    final String IMGBB_API_KEY = "4838077f3adbab432f18d5e7e42a53ff";
 
     private void init() {
         imgview = v.findViewById(R.id.dialogueimage);
@@ -136,7 +136,7 @@ public class AddPostFrag extends Fragment {
                         String link = jobj.getJSONObject("data").getString("url");
                         savePost(link, captiontext);
                     } else {
-                        Log.e("ImgBBError", "HTTP " + responseCode + ": " + response);  // <-- Log the full response
+                        Log.e("ImgBBError", "HTTP " + responseCode + ": " + response);
                         requireActivity().runOnUiThread(() ->
                                 Toast.makeText(getContext(), "ImgBB error: " + response, Toast.LENGTH_LONG).show());
                     }

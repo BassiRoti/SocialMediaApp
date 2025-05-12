@@ -130,7 +130,6 @@ public class ProfileFragment extends Fragment {
                     }
                 });
 
-        // Setting up RecyclerView adapter
         FirebaseRecyclerOptions<PostsData> opt = new FirebaseRecyclerOptions
                 .Builder<PostsData>()
                 .setQuery(FirebaseDatabase.getInstance().getReference("posts").orderByChild("userID").equalTo(userId), PostsData.class)
@@ -245,7 +244,7 @@ public class ProfileFragment extends Fragment {
                     dialoguepfp.setImageURI(image);
                 }
 
-                // Uploading the image to ImgBB
+
                 new Thread(() -> {
                     try {
                         String apiKey = "4838077f3adbab432f18d5e7e42a53ff";

@@ -1,6 +1,7 @@
 package com.example.socialmediaapp;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ public class RVAdapter extends FirebaseRecyclerAdapter<PostsData, RVAdapter.View
                 if(snapshot.exists()){
                    String tempusername=snapshot.child("Username").getValue(String.class);
                    holder.username.setText(tempusername);
+                   holder.img.setImageURI(Uri.parse(snapshot.child("Image").getValue(String.class)));
 
                 }
             }
